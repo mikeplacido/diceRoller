@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dice</title>
+
+  <script src="/node_modules/chart.js/dist/chart.umd.js"></script>
+  <script src="/node_modules/chartjs-plugin-annotation/dist/chartjs-plugin-annotation.min.js"></script>
+  <script src="/script.js"></script>
+
+  <script src=""></script>
+
+  <link rel="stylesheet" href="/style.css" />
+</head>
+
+<style>
+
+</style>
+</head>
+
+<body>
+  <div>
+    <h1>Dice</h1>
+  </div>
+
+  <div id="buttons">
+    <button id="btnRollDice">Roll Dice</button>
+    <button id="btnReset">Reset</button>
+  </div>
+
+  <div id="inputs">
+    <label for="inpNumberRolls">Number of Rolls:</label>
+    <input type="number" id="inpNumberRolls" placeholder="Number of Rolls" min="1" value="20" />
+    <p id="OR">OR</p>
+    <label for="inpTime">Roll for T seconds:</label>
+    <input type="number" id="inpTime" placeholder="Roll for T seconds" min="1" value="1" />
+  </div>
+
+  <h2>Results</h2>
+  <div id="displayResults">
+    <span id="displayResultsText">Click "Roll Dice" to start rolling.</span>	
+  </div>
+
+  <h2>Analysis</h2>
+  <div id="displayAnalysis"></div>
+  
+  
+
+
+</body>
+
+</html>
