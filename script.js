@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const btnRollDice = document.getElementById('btnRollDice');
   const btnReset = document.getElementById('btnReset');
+  const displayResultsMessage = document.querySelector('#displayResultsMessage');
   const displayResultsText = document.getElementById('displayResultsText');
   const inpNumberRolls = document.getElementById('inpNumberRolls');
   const inpTime = document.getElementById('inpTime');
@@ -34,8 +35,9 @@ let results = [];
 
 function ResetForm() {
   results = [];
-  displayResultsText.innerHTML = '';
-  displayAnalysis.innerHTML = '';
+  displayResultsMessage.innerHTML = 'Click "Roll Dice" to start rolling.'
+  displayResultsText.innerHTML = ''
+  displayAnalysis.innerHTML = 'No analysis yet.';
   inpNumberRolls.value = 20;
   inpTime.value = 1;
   inpNumberRolls.removeAttribute('disabled');
@@ -59,6 +61,8 @@ function ResetForm() {
 // }
 
 function RollDice() {
+  
+  displayResultsMessage.innerHTML=''
   if (inpNumberRolls.getAttribute('disabled') === null) {
     const numberRolls = parseInt(
       document.getElementById('inpNumberRolls').value
@@ -112,38 +116,30 @@ function DisplayAnalysis() {
     <div id="analysisText">
       <p>Total: ${analysis[0]} &nbsp;&nbsp; Average: ${analysis[1]}</p>
     </div>
+    <div><h3>
+       Count
+      </h3>
+      </div>
     <div id="analysisFlex">
-      <div id="analysisTable">
-        <table>
-          <tr>
-            <th></th>
-            <th>Count</th>
-          </tr>
-          <tr>
-            <td id="dice">&#9856</td>
-            <td>${analysis[2][0]}</td>
-          </tr>
-          <tr>
-            <td id="dice">&#9857</td>
-            <td>${analysis[2][1]}</td>
-          </tr>
-          <tr>
-            <td id="dice">&#9858</td>
-            <td>${analysis[2][2]}</td>
-          </tr>
-          <tr>
-            <td id="dice">&#9859</td>
-            <td>${analysis[2][3]}</td>
-          </tr>
-          <tr>
-            <td id="dice">&#9860</td>
-            <td>${analysis[2][4]}</td>
-          </tr>
-          <tr>
-            <td id="dice">&#9861</td>
-            <td>${analysis[2][5]}</td>
-          </tr>
-        </table>
+      
+      <span>
+        &#9856 ${analysis[2][0]}
+      </span>
+      <span>
+        &#9857 ${analysis[2][1]}
+      </span>
+      <span>
+        &#9858 ${analysis[2][2]}
+      </span>
+      <span>
+        &#9859 ${analysis[2][3]}
+      </span>
+      <span>
+        &#9860 ${analysis[2][4]}
+      </span>
+      <span>
+        &#9861 ${analysis[2][5]}
+      </span>
       </div>
       <div id="chartContainer"></div>
     </div>

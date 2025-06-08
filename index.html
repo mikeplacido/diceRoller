@@ -4,13 +4,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dice</title>
+  <title>Dice Roller</title>
 
   <script src="node_modules/chart.js/dist/chart.umd.js"></script>
   <script src="node_modules/chartjs-plugin-annotation/dist/chartjs-plugin-annotation.min.js"></script>
   <script src="script.js"></script>
+  <link rel="icon" href="dice.png"  type="image/png"/>
 
-  <script src=""></script>
+  <!-- <script src=""></script> -->
 
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -22,12 +23,7 @@
 
 <body>
   <div>
-    <h1>Dice</h1>
-  </div>
-
-  <div id="buttons">
-    <button id="btnRollDice">Roll Dice</button>
-    <button id="btnReset">Reset</button>
+    <h1>Dice Roller</h1>
   </div>
 
   <div id="inputs">
@@ -38,13 +34,24 @@
     <input type="number" id="inpTime" placeholder="Roll for T seconds" min="1" value="1" />
   </div>
 
-  <h2>Results</h2>
-  <div id="displayResults">
-    <span id="displayResultsText">Click "Roll Dice" to start rolling.</span>	
+  <div id="buttons">
+    <button id="btnRollDice">Roll Dice</button>
+    <button id="btnReset">Reset</button>
   </div>
 
-  <h2>Analysis</h2>
+  <div>
+  <h3>Results</h3>
+  </div>
+  <div id="displayResults">
+    <span id="displayResultsMessage">Click "Roll Dice" to start rolling.</span>
+    <span id="displayResultsText"></span>	
+  </div>
+  <div><h3>Analysis</h3></div>
+  
   <div id="displayAnalysis"></div>
+  <div>
+    <h3>Chart of Average Rolls</h3>
+  </div>
   
   
 
