@@ -49,6 +49,9 @@ p {
   background-color: rgb(190, 210, 249);
 }
 
+form{
+  width: 100%;
+}
 #buttons {
   display: flex;
   flex-direction: row;
@@ -64,6 +67,16 @@ h3{
 #displayResults{
   background-color: var(--bg1);
   max-height: 5%;
+  overflow: hidden;
+}
+
+#displayResultsText
+{
+  /* width: 100%; */
+  /* overflow-x:hidden; */
+  max-height: 4em;
+  white-space: nowrap;
+  /* text-align: right; */
 }
 
 #analysisText{
@@ -74,12 +87,7 @@ h3{
   padding:0;
 }
 
-#displayResultsText
-{
-  overflow: none;
-  max-height: 4em;
-  white-space: nowrap;
-}
+
 
 #analysisFlex{
   display: flex;
@@ -87,6 +95,14 @@ h3{
   background-color: var(--bg1);
   font-size: 2rem;
   justify-content: space-between;
+  padding: 0.3em;
+}
+
+.dice {
+  font-size: 2.5rem;
+}
+.analysis {
+  font-size: 1rem;
 }
 /* display: flex;
   

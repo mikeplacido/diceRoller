@@ -1,4 +1,3 @@
-
 if (window.Chart && window['chartjs-plugin-annotation']) {
   Chart.register(window['chartjs-plugin-annotation']);
 }
@@ -8,16 +7,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const btnRollDice = document.getElementById('btnRollDice');
   const btnReset = document.getElementById('btnReset');
-  const displayResultsMessage = document.querySelector('#displayResultsMessage');
+  const displayResultsMessage = document.querySelector(
+    '#displayResultsMessage'
+  );
   const displayResultsText = document.getElementById('displayResultsText');
   const inpNumberRolls = document.getElementById('inpNumberRolls');
   const inpTime = document.getElementById('inpTime');
   // set default values
   ResetForm();
-  
 
   // click event listeners
-  btnRollDice.addEventListener('click', RollDice);
+  btnRollDice.addEventListener('click', (e) => {
+    e.preventDefault();
+    RollDice();
+  });
   btnReset.addEventListener('click', ResetForm);
 
   // input event listeners
@@ -35,8 +38,8 @@ let results = [];
 
 function ResetForm() {
   results = [];
-  displayResultsMessage.innerHTML = 'Click "Roll Dice" to start rolling.'
-  displayResultsText.innerHTML = ''
+  displayResultsMessage.innerHTML = 'Click "Roll Dice" to start rolling.';
+  displayResultsText.innerHTML = '';
   displayAnalysis.innerHTML = 'No analysis yet.';
   inpNumberRolls.value = 20;
   inpTime.value = 1;
@@ -61,8 +64,7 @@ function ResetForm() {
 // }
 
 function RollDice() {
-  
-  displayResultsMessage.innerHTML=''
+  displayResultsMessage.innerHTML = '';
   if (inpNumberRolls.getAttribute('disabled') === null) {
     const numberRolls = parseInt(
       document.getElementById('inpNumberRolls').value
@@ -107,8 +109,6 @@ function ResultTicker(result) {
   displayResultsText.innerHTML += `${result}   `;
 }
 
-
-
 //display analysis
 function DisplayAnalysis() {
   const analysis = AnalyseResults();
@@ -122,23 +122,23 @@ function DisplayAnalysis() {
       </div>
     <div id="analysisFlex">
       
-      <span>
-        &#9856 ${analysis[2][0]}
+      <span class="dice">
+        &#9856</span> <span class="analysis"> ${analysis[2][0]}
       </span>
-      <span>
-        &#9857 ${analysis[2][1]}
+      <span class="dice">
+        &#9857</span> <span class="analysis"> ${analysis[2][1]}
       </span>
-      <span>
-        &#9858 ${analysis[2][2]}
+      <span class="dice">
+        &#9858</span> <span class="analysis"> ${analysis[2][2]}
       </span>
-      <span>
-        &#9859 ${analysis[2][3]}
+      <span class="dice">
+        &#9859</span> <span class="analysis"> ${analysis[2][3]}
       </span>
-      <span>
-        &#9860 ${analysis[2][4]}
+      <span class="dice">
+        &#9860</span> <span class="analysis"> ${analysis[2][4]}
       </span>
-      <span>
-        &#9861 ${analysis[2][5]}
+      <span class="dice">
+        &#9861</span> <span class="analysis"> ${analysis[2][5]}
       </span>
       </div>
       
@@ -179,8 +179,7 @@ function createChart() {
           data: results.map((_, index) => {
             const slice = results.slice(0, index + 1);
             return Number(
-              slice.reduce((sum, val) => sum + val, 0) /
-              (index + 1)
+              slice.reduce((sum, val) => sum + val, 0) / (index + 1)
             ).toFixed(2);
           }),
           borderColor: 'rgba(75, 192, 192, 1)',
@@ -227,5 +226,3 @@ function createChart() {
     },
   });
 }
-
-

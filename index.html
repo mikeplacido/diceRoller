@@ -25,19 +25,21 @@
   <div id="titleBar">
     <img src='dice.png'/><h1>Dice Roller</h1>
   </div>
-
+<form>
   <div id="inputs">
+    
     <label for="inpNumberRolls">Number of Rolls:</label>
     <input type="number" id="inpNumberRolls" placeholder="Number of Rolls" min="1" value="20" />
     <p id="OR">OR</p>
     <label for="inpTime">Roll for T seconds:</label>
     <input type="number" id="inpTime" placeholder="Roll for T seconds" min="1" value="1" />
+    <div id="buttons">
+    <button type="submit" id="btnRollDice">Roll Dice</button>
+    <button type="button" id="btnReset">Reset</button>
   </div>
-
-  <div id="buttons">
-    <button id="btnRollDice">Roll Dice</button>
-    <button id="btnReset">Reset</button>
   </div>
+</form>
+  
 
   <div>
   <h3>Results</h3>
