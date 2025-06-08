@@ -141,7 +141,7 @@ function DisplayAnalysis() {
         &#9861 ${analysis[2][5]}
       </span>
       </div>
-      <div id="chartContainer"></div>
+      
     </div>
   `;
   createChart();
